@@ -16,10 +16,12 @@ def home_view(request):
 
     skyblue = Color(name="skyblue", red=135, green=206, blue=250)
 
+    
     params = {
         "name": "stranger",
         "color": skyblue,
     }
+
     
     response = render(request, 'color_app/index.html', params)
     return response
@@ -45,7 +47,7 @@ def random_color_view(request):
 class ColorListView(ListView):
     model = Color
     template_name = "color_app/color_list.html"
-    queryset = Color.objects.order_by("name")
+    queryset = Color.objects.order_by("red")
 
 class NewColorView(CreateView):
     model = Color
